@@ -21,7 +21,7 @@ public class AccountLogin {
                 .body("passwordResetCode",equalTo(null)).
                 extract().response().asString();
 
-        JsonPath js = new JsonPath(response);
+        JsonPath js = ReUsableMethods.rawToJson(response);
         String tokenBearer = js.getString("tokenBearer");
     }
 }
